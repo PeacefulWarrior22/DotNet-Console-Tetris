@@ -16,12 +16,12 @@ namespace Tetris
         public int X
         {
             get => _x - (KeyCellPosition[1] + 1); // KeyCellPosition offset
-            set => _x = value;
+            set => _x = value + (KeyCellPosition[1] + 1);
         }
         public int Y
         {
             get => _y - (KeyCellPosition[0] + 1); // KeyCellPosition offset
-            set => _y = value;
+            set => _y = value + (KeyCellPosition[0] + 1);
         }
         public int[,]? Matrix { get; set; }
 
