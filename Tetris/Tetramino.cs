@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    public delegate int[] CalculateKeyCell(Tetramino item);
+    public delegate int[] CalculateKeyCell(Tetramino item, bool side);
     public abstract class Tetramino
     {
         private protected int _x;
@@ -51,13 +51,11 @@ namespace Tetris
     {
         public LineShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().DinamycKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().LineKeyCell;
 
-            KeyCellPosition = new int[] { 1, 1 };
+            KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
-                { 0, 0, 0, 0 },
-                { 1, 1, 1, 1 },
-                { 0, 0, 0, 0 }
+                { 1, 1, 1, 1 }
             };
         }
     }
@@ -66,7 +64,7 @@ namespace Tetris
     {
         public ZShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().DinamycKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().ZShapeKeyCell;
 
             KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
@@ -80,7 +78,7 @@ namespace Tetris
     {
         public RZShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().DinamycKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().ZShapeKeyCell;
 
             KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
@@ -94,11 +92,10 @@ namespace Tetris
     {
         public TShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().StaticKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().SquareKeyCell;
 
-            KeyCellPosition = new int[] { 1, 1 };
+            KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
-                { 0, 0, 0 },
                 { 1, 1, 1 },
                 { 0, 1, 0 }
             };
@@ -109,11 +106,10 @@ namespace Tetris
     {
         public LShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().StaticKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().SquareKeyCell;
 
-            KeyCellPosition = new int[] { 1, 1 };
+            KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
-                { 0, 0, 0 },
                 { 1, 1, 1 },
                 { 1, 0, 0 }
             };
@@ -125,11 +121,10 @@ namespace Tetris
 
         public RLShape() : base()
         {
-            calculateKeyCellPosition += new TetraminoRotator().StaticKeyCell;
+            calculateKeyCellPosition += new TetraminoRotator().SquareKeyCell;
 
-            KeyCellPosition = new int[] { 1, 1 };
+            KeyCellPosition = new int[] { 0, 1 };
             Matrix = new int[,] {
-                { 0, 0, 0 },
                 { 1, 1, 1 },
                 { 0, 0, 1 }
             };
